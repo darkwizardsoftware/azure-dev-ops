@@ -20,6 +20,7 @@ namespace BeamToolHost
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            System.Windows.Forms.Application.EnableVisualStyles();
             base.OnStartup(e);
             ConfigureDependencyList();
             AppDomain.CurrentDomain.AssemblyResolve += ResolveBeamTool;
