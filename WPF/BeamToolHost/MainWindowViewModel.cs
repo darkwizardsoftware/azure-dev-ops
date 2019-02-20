@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using ESBeamTool;
 
 namespace BeamToolHost
 {
@@ -184,11 +178,6 @@ namespace BeamToolHost
 
         private void GetWorkspaceDocumentCommandExecute(object parameter)
         {
-            IWorkspace theSpace = parameter as IWorkspace;
-            if(theSpace !=null)
-            {
-                string xml = theSpace.WorkspaceXML;
-            }
         }
 
         #endregion

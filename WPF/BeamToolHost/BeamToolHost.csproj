@@ -42,9 +42,6 @@
     <StartupObject>BeamToolHost.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BeamTool">
-      <HintPath>C:\Program Files (x86)\Eclipse Scientific\ESBeamTool9\BeamTool.exe</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
@@ -112,6 +109,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WinFormControls\WinFormControls.csproj">
+      <Project>{114232c3-857f-4433-ad22-ee1d86539b32}</Project>
+      <Name>WinFormControls</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

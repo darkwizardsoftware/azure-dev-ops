@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Forms.Integration;
-using ESBeamTool;
 
 namespace BeamToolHost
 {
@@ -34,7 +33,6 @@ namespace BeamToolHost
             using (StreamReader reader = new StreamReader("Sample.ebwk"))
             {
                 string xml = await reader.ReadToEndAsync();
-                beamTool.WorkspaceOpen(xml);
 
             }
         }
@@ -42,13 +40,10 @@ namespace BeamToolHost
         private void OpenFileInfoWorkspaceButtonClick(object sender, RoutedEventArgs e)
         {
             FileInfo info = new FileInfo("Sample.ebwk");
-            beamTool.WorkspaceOpen(info);
         }
 
         private void GetWorkspaceXmlButtonClick(object sender, RoutedEventArgs e)
         {
-            IWorkspace theSpace = beamTool.Workspace;
-            string xml = theSpace.WorkspaceXML;
 
         }
 
@@ -59,11 +54,6 @@ namespace BeamToolHost
         private void OnShowToolBarChanged(object host, string propertyName, object value)
         {
             BeamToolWindowsFormsHost theHost = host as BeamToolWindowsFormsHost;
-            BeamToolView beamToolView = theHost.Child as BeamToolView;
-            if (beamToolView != null)
-            {
-                beamToolView.ShowToolbar = theHost.ShowToolBar;
-            }
 
 
         }
@@ -71,22 +61,12 @@ namespace BeamToolHost
         private void OnWorkspaceXmlChanged(object host, string propertyName, object workspaceXml)
         {
             BeamToolWindowsFormsHost theHost = host as BeamToolWindowsFormsHost;
-            BeamToolView beamToolView = theHost.Child as BeamToolView;
-            if (beamToolView != null)
-            {
-                beamToolView.WorkspaceOpen((string)workspaceXml);
-            }
 
         }
 
         private void OnWorkspaceFileInfoChanged(object host, string propertyName, object fileInfo)
         {
             BeamToolWindowsFormsHost theHost = host as BeamToolWindowsFormsHost;
-            BeamToolView beamToolView = theHost.Child as BeamToolView;
-            if (beamToolView != null)
-            {
-                beamToolView.WorkspaceOpen((FileInfo)fileInfo);
-            }
 
         }
         #endregion
